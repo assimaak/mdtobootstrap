@@ -1,0 +1,31 @@
+
+modeltype usdmm "strict" uses "http://www.example.org/usd";
+modeltype bootmm "strict" uses	"http://www.example.org/bootstrap";
+
+transformation block2block (in usd : usdmm, out boot : bootmm);
+
+main() {
+	var site : bootmm::Site := object bootmm::Site{
+		usd.rootObjects()[usdmm::Site] -> forEach( s ) {
+		  name := s.name;
+		  blocs += s.blocks -> map block2block() ;
+		}
+	}
+}
+
+mapping usdmm::Title::title2header(): bootmm::Header{
+	level := self.level;
+	textelements += self.oclAsType(TextContainer).textelements -> map text2text();
+}
+
+mapping usdmm::Paragraphe::para2para(): bootmm::Paragraphe{
+	textelements += self.textelements -> map text2text();
+}
+
+mapping usdmm::TextElement::text2text():bootmm::Text{
+	text := self.oclAsType(Text).text;
+}
+
+
+mapping usdmm::Block::block2block() : bootmm::Block
+disjuncts usdmm::Title::title2header, usdmm::Paragraphe::para2para {}

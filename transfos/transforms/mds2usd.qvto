@@ -1,0 +1,31 @@
+
+modeltype markdownmm "strict" uses "http://www.example.org/simplemarkdown";
+modeltype usdmm "strict" uses	"http://www.example.org/usd";
+
+transformation block2block(in md : markdownmm, out usd : usdmm);
+
+main() {
+	var site : Site := object Site{
+		md.rootObjects()[Document] -> forEach( doc ) {
+		  name := doc.name;
+		  blocks += doc.contents -> map block2block();
+		}
+	}
+}
+
+mapping markdownmm::Title::title2title(): usdmm::Title{
+	level := self.level;
+	textelements += self.oclAsType(TextContainer).elements -> map text2text();
+}
+
+mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe{
+	textelements += self.elements -> map text2text();
+}
+
+mapping markdownmm::TextElement::text2text():usdmm::Text{
+	text := self.oclAsType(Text).text;
+}
+
+
+mapping markdownmm::Block::block2block() : usdmm::Block
+disjuncts markdownmm::Title::title2title, markdownmm::Paragraph::para2para {}
