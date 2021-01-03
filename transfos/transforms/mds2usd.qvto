@@ -18,7 +18,16 @@ mapping markdownmm::Title::title2title(): usdmm::Title{
 	textelements += self.oclAsType(TextContainer).elements -> map text2text();
 }
 
-mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe{
+mapping markdownmm::Paragraph::ref2link(): usdmm::Link
+when {self.allSubobjectsOfType(Link) -> size() >0}{
+	self.elements -> forEach (t){
+	 url := t.oclAsType(UrlBasedLink).url;
+	  t.oclAsType(UrlBasedLink).subtext -> forOne(text) {title := text.oclAsType(Text).text };
+	 }
+}
+
+mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe
+when {self.allSubobjectsOfType(Link) -> size() =0}{
 	textelements += self.elements -> map text2text();
 }
 
@@ -28,4 +37,4 @@ mapping markdownmm::TextElement::text2text():usdmm::Text{
 
 
 mapping markdownmm::Block::block2block() : usdmm::Block
-disjuncts markdownmm::Title::title2title, markdownmm::Paragraph::para2para {}
+disjuncts markdownmm::Title::title2title,markdownmm::Paragraph::ref2link, markdownmm::Paragraph::para2para {}

@@ -43,6 +43,9 @@
 		<p> [i.text/] <p>
 	[/for]
 [/if]
+[if (aBlock.oclIsKindOf(Link))]
+	<a class="nav-link active" href="[aBlock.oclAsType(Link).url/]"> [aBlock.oclAsType(Link).title/] </a>
+[/if]
 [/template]
 
 [comment][template public generateElement (anHeader : Header)]

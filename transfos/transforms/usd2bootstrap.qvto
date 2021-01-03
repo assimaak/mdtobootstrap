@@ -22,10 +22,15 @@ mapping usdmm::Paragraphe::para2para(): bootmm::Paragraphe{
 	textelements += self.textelements -> map text2text();
 }
 
+mapping usdmm::Link::link2link(): bootmm::Link{
+	title := self.title;
+	url := self.url;
+}
+
 mapping usdmm::TextElement::text2text():bootmm::Text{
 	text := self.oclAsType(Text).text;
 }
 
 
 mapping usdmm::Block::block2block() : bootmm::Block
-disjuncts usdmm::Title::title2header, usdmm::Paragraphe::para2para {}
+disjuncts usdmm::Title::title2header, usdmm::Link::link2link,usdmm::Paragraphe::para2para {}
