@@ -66,6 +66,14 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			return createParagraphe();
 		case BootstrapPackage.LINK:
 			return createLink();
+		case BootstrapPackage.IMAGE:
+			return createImage();
+		case BootstrapPackage.BOUTON:
+			return createBouton();
+		case BootstrapPackage.LINE:
+			return createLine();
+		case BootstrapPackage.NAVBAR:
+			return createNavbar();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -119,6 +127,46 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Link createLink() {
 		LinkImpl link = new LinkImpl();
 		return link;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Image createImage() {
+		ImageImpl image = new ImageImpl();
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Bouton createBouton() {
+		BoutonImpl bouton = new BoutonImpl();
+		return bouton;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Line createLine() {
+		LineImpl line = new LineImpl();
+		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Navbar createNavbar() {
+		NavbarImpl navbar = new NavbarImpl();
+		return navbar;
 	}
 
 	/**

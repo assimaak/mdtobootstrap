@@ -177,10 +177,22 @@ public class SiteItemProvider extends ItemProviderAdapter implements IEditingDom
 				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createTitle()));
 
 		newChildDescriptors
+				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors
+				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createImage()));
+
+		newChildDescriptors
 				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createParagraphe()));
 
 		newChildDescriptors
-				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createLink()));
+				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createSection()));
+
+		newChildDescriptors
+				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createNavbar()));
+
+		newChildDescriptors
+				.add(createChildParameter(UsdPackage.Literals.SITE__BLOCKS, UsdFactory.eINSTANCE.createLine()));
 	}
 
 	/**

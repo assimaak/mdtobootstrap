@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bootstrap:Site xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bootstrap="http://www.example.org/bootstrap" name="\fichiers_test\tipa.simplemarkdown">
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="Une Navbar :"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Navbar">
+    <link url="http://google.com" title="Google"/>
+    <link url="http://lequipe.fr" title="L'equipe"/>
+    <link url="http://20minutes.fr" title="20 Minutes"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Header" level="1">
+    <textelements xsi:type="bootstrap:Text" text="Titre 1"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="paragraphe de test"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Header" level="2">
+    <textelements xsi:type="bootstrap:Text" text="Titre 2"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="deux textes"/>
+    <textelements xsi:type="bootstrap:Text" text="dans un paragraphe"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Link" url="http://google.com" title="premier lien"/>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="et on continue"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Header" level="4">
+    <textelements xsi:type="bootstrap:Text" text="Gros Titre (4)"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="Voici un lien :"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Link" url="http://google.com" title="premier lien"/>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="Une image :"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Image" url="https://pbs.twimg.com/media/EOBFeHxWsAEg69C?format=jpg&amp;name=medium" title="mrg"/>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="Et un bouton !"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Bouton" class="btn btn-primary" text="Master Info GL" url="https://www.fil.univ-lille1.fr/portail/index.php?dipl=MInfo&amp;sem=M1GL&amp;ue=ACCUEIL&amp;label=Pr%C3%A9sentation"/>
+  <blocs xsi:type="bootstrap:Paragraphe">
+    <textelements xsi:type="bootstrap:Text" text="Une ligne pour finir :"/>
+  </blocs>
+  <blocs xsi:type="bootstrap:Line"/>
+</bootstrap:Site>

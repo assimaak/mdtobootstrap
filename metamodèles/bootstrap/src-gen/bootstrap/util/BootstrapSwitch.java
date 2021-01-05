@@ -131,18 +131,56 @@ public class BootstrapSwitch<T> extends Switch<T> {
 			Link link = (Link) theEObject;
 			T result = caseLink(link);
 			if (result == null)
-				result = caseReference(link);
+				result = caseUrlLink(link);
 			if (result == null)
 				result = caseBlock(link);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case BootstrapPackage.REFERENCE: {
-			Reference reference = (Reference) theEObject;
-			T result = caseReference(reference);
+		case BootstrapPackage.URL_LINK: {
+			UrlLink urlLink = (UrlLink) theEObject;
+			T result = caseUrlLink(urlLink);
 			if (result == null)
-				result = caseBlock(reference);
+				result = caseBlock(urlLink);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BootstrapPackage.IMAGE: {
+			Image image = (Image) theEObject;
+			T result = caseImage(image);
+			if (result == null)
+				result = caseUrlLink(image);
+			if (result == null)
+				result = caseBlock(image);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BootstrapPackage.BOUTON: {
+			Bouton bouton = (Bouton) theEObject;
+			T result = caseBouton(bouton);
+			if (result == null)
+				result = caseBlock(bouton);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BootstrapPackage.LINE: {
+			Line line = (Line) theEObject;
+			T result = caseLine(line);
+			if (result == null)
+				result = caseBlock(line);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BootstrapPackage.NAVBAR: {
+			Navbar navbar = (Navbar) theEObject;
+			T result = caseNavbar(navbar);
+			if (result == null)
+				result = caseBlock(navbar);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -273,17 +311,77 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Url Link</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Url Link</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReference(Reference object) {
+	public T caseUrlLink(UrlLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImage(Image object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bouton</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bouton</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBouton(Bouton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLine(Line object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navbar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavbar(Navbar object) {
 		return null;
 	}
 

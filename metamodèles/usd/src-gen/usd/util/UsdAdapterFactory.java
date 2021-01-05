@@ -67,23 +67,13 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected UsdSwitch<Adapter> modelSwitch = new UsdSwitch<Adapter>() {
 		@Override
-		public Adapter caseSite(Site object) {
-			return createSiteAdapter();
-		}
-
-		@Override
-		public Adapter caseBlock(Block object) {
-			return createBlockAdapter();
-		}
-
-		@Override
 		public Adapter caseTitle(Title object) {
 			return createTitleAdapter();
 		}
 
 		@Override
-		public Adapter caseParagraphe(Paragraphe object) {
-			return createParagrapheAdapter();
+		public Adapter caseSite(Site object) {
+			return createSiteAdapter();
 		}
 
 		@Override
@@ -92,8 +82,18 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseTextElement(TextElement object) {
-			return createTextElementAdapter();
+		public Adapter caseUrlLink(UrlLink object) {
+			return createUrlLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseBlock(Block object) {
+			return createBlockAdapter();
+		}
+
+		@Override
+		public Adapter caseLink(Link object) {
+			return createLinkAdapter();
 		}
 
 		@Override
@@ -102,13 +102,33 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseReference(Reference object) {
-			return createReferenceAdapter();
+		public Adapter caseTextElement(TextElement object) {
+			return createTextElementAdapter();
 		}
 
 		@Override
-		public Adapter caseLink(Link object) {
-			return createLinkAdapter();
+		public Adapter caseImage(Image object) {
+			return createImageAdapter();
+		}
+
+		@Override
+		public Adapter caseParagraphe(Paragraphe object) {
+			return createParagrapheAdapter();
+		}
+
+		@Override
+		public Adapter caseSection(Section object) {
+			return createSectionAdapter();
+		}
+
+		@Override
+		public Adapter caseNavbar(Navbar object) {
+			return createNavbarAdapter();
+		}
+
+		@Override
+		public Adapter caseLine(Line object) {
+			return createLineAdapter();
 		}
 
 		@Override
@@ -131,34 +151,6 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link usd.Site <em>Site</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see usd.Site
-	 * @generated
-	 */
-	public Adapter createSiteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link usd.Block <em>Block</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see usd.Block
-	 * @generated
-	 */
-	public Adapter createBlockAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link usd.Title <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -173,16 +165,16 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link usd.Paragraphe <em>Paragraphe</em>}'.
+	 * Creates a new adapter for an object of class '{@link usd.Site <em>Site</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see usd.Paragraphe
+	 * @see usd.Site
 	 * @generated
 	 */
-	public Adapter createParagrapheAdapter() {
+	public Adapter createSiteAdapter() {
 		return null;
 	}
 
@@ -201,16 +193,114 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link usd.TextElement <em>Text Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link usd.Paragraphe <em>Paragraphe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see usd.TextElement
+	 * @see usd.Paragraphe
 	 * @generated
 	 */
-	public Adapter createTextElementAdapter() {
+	public Adapter createParagrapheAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Section <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Section
+	 * @generated
+	 */
+	public Adapter createSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Navbar <em>Navbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Navbar
+	 * @generated
+	 */
+	public Adapter createNavbarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Line <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Line
+	 * @generated
+	 */
+	public Adapter createLineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Image <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Image
+	 * @generated
+	 */
+	public Adapter createImageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.UrlLink <em>Url Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.UrlLink
+	 * @generated
+	 */
+	public Adapter createUrlLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Block <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Block
+	 * @generated
+	 */
+	public Adapter createBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Link <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Link
+	 * @generated
+	 */
+	public Adapter createLinkAdapter() {
 		return null;
 	}
 
@@ -229,30 +319,16 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link usd.Reference <em>Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link usd.TextElement <em>Text Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see usd.Reference
+	 * @see usd.TextElement
 	 * @generated
 	 */
-	public Adapter createReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link usd.Link <em>Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see usd.Link
-	 * @generated
-	 */
-	public Adapter createLinkAdapter() {
+	public Adapter createTextElementAdapter() {
 		return null;
 	}
 

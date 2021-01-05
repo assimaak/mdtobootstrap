@@ -67,6 +67,42 @@ public interface BootstrapFactory extends EFactory {
 	Link createLink();
 
 	/**
+	 * Returns a new object of class '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Image</em>'.
+	 * @generated
+	 */
+	Image createImage();
+
+	/**
+	 * Returns a new object of class '<em>Bouton</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bouton</em>'.
+	 * @generated
+	 */
+	Bouton createBouton();
+
+	/**
+	 * Returns a new object of class '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line</em>'.
+	 * @generated
+	 */
+	Line createLine();
+
+	/**
+	 * Returns a new object of class '<em>Navbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Navbar</em>'.
+	 * @generated
+	 */
+	Navbar createNavbar();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

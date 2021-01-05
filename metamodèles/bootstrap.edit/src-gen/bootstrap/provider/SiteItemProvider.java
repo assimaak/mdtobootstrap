@@ -181,6 +181,18 @@ public class SiteItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		newChildDescriptors.add(
 				createChildParameter(BootstrapPackage.Literals.SITE__BLOCS, BootstrapFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors.add(
+				createChildParameter(BootstrapPackage.Literals.SITE__BLOCS, BootstrapFactory.eINSTANCE.createImage()));
+
+		newChildDescriptors.add(
+				createChildParameter(BootstrapPackage.Literals.SITE__BLOCS, BootstrapFactory.eINSTANCE.createBouton()));
+
+		newChildDescriptors.add(
+				createChildParameter(BootstrapPackage.Literals.SITE__BLOCS, BootstrapFactory.eINSTANCE.createLine()));
+
+		newChildDescriptors.add(
+				createChildParameter(BootstrapPackage.Literals.SITE__BLOCS, BootstrapFactory.eINSTANCE.createNavbar()));
 	}
 
 	/**

@@ -66,9 +66,38 @@ public class UsdSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+		case UsdPackage.TITLE: {
+			Title title = (Title) theEObject;
+			T result = caseTitle(title);
+			if (result == null)
+				result = caseTextContainer(title);
+			if (result == null)
+				result = caseBlock(title);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case UsdPackage.SITE: {
 			Site site = (Site) theEObject;
 			T result = caseSite(site);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UsdPackage.TEXT: {
+			Text text = (Text) theEObject;
+			T result = caseText(text);
+			if (result == null)
+				result = caseTextElement(text);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UsdPackage.URL_LINK: {
+			UrlLink urlLink = (UrlLink) theEObject;
+			T result = caseUrlLink(urlLink);
+			if (result == null)
+				result = caseBlock(urlLink);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -80,13 +109,40 @@ public class UsdSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case UsdPackage.TITLE: {
-			Title title = (Title) theEObject;
-			T result = caseTitle(title);
+		case UsdPackage.LINK: {
+			Link link = (Link) theEObject;
+			T result = caseLink(link);
 			if (result == null)
-				result = caseTextContainer(title);
+				result = caseUrlLink(link);
 			if (result == null)
-				result = caseBlock(title);
+				result = caseBlock(link);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UsdPackage.TEXT_CONTAINER: {
+			TextContainer textContainer = (TextContainer) theEObject;
+			T result = caseTextContainer(textContainer);
+			if (result == null)
+				result = caseBlock(textContainer);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UsdPackage.TEXT_ELEMENT: {
+			TextElement textElement = (TextElement) theEObject;
+			T result = caseTextElement(textElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UsdPackage.IMAGE: {
+			Image image = (Image) theEObject;
+			T result = caseImage(image);
+			if (result == null)
+				result = caseUrlLink(image);
+			if (result == null)
+				result = caseBlock(image);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -102,47 +158,29 @@ public class UsdSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case UsdPackage.TEXT: {
-			Text text = (Text) theEObject;
-			T result = caseText(text);
+		case UsdPackage.SECTION: {
+			Section section = (Section) theEObject;
+			T result = caseSection(section);
 			if (result == null)
-				result = caseTextElement(text);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case UsdPackage.TEXT_ELEMENT: {
-			TextElement textElement = (TextElement) theEObject;
-			T result = caseTextElement(textElement);
+				result = caseBlock(section);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case UsdPackage.TEXT_CONTAINER: {
-			TextContainer textContainer = (TextContainer) theEObject;
-			T result = caseTextContainer(textContainer);
+		case UsdPackage.NAVBAR: {
+			Navbar navbar = (Navbar) theEObject;
+			T result = caseNavbar(navbar);
 			if (result == null)
-				result = caseBlock(textContainer);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case UsdPackage.REFERENCE: {
-			Reference reference = (Reference) theEObject;
-			T result = caseReference(reference);
-			if (result == null)
-				result = caseBlock(reference);
+				result = caseBlock(navbar);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case UsdPackage.LINK: {
-			Link link = (Link) theEObject;
-			T result = caseLink(link);
+		case UsdPackage.LINE: {
+			Line line = (Line) theEObject;
+			T result = caseLine(line);
 			if (result == null)
-				result = caseReference(link);
-			if (result == null)
-				result = caseBlock(link);
+				result = caseBlock(line);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -150,36 +188,6 @@ public class UsdSwitch<T> extends Switch<T> {
 		default:
 			return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Site</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Site</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSite(Site object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Block</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBlock(Block object) {
-		return null;
 	}
 
 	/**
@@ -198,17 +206,17 @@ public class UsdSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Paragraphe</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Site</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Paragraphe</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Site</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParagraphe(Paragraphe object) {
+	public T caseSite(Site object) {
 		return null;
 	}
 
@@ -228,17 +236,122 @@ public class UsdSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Paragraphe</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Paragraphe</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTextElement(TextElement object) {
+	public T caseParagraphe(Paragraphe object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSection(Section object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Navbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Navbar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNavbar(Navbar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLine(Line object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImage(Image object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Url Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Url Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUrlLink(UrlLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Block</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlock(Block object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLink(Link object) {
 		return null;
 	}
 
@@ -258,32 +371,17 @@ public class UsdSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReference(Reference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLink(Link object) {
+	public T caseTextElement(TextElement object) {
 		return null;
 	}
 

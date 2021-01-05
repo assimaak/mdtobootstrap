@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simplemarkdown:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplemarkdown="http://www.example.org/simplemarkdown" name="\fichiers_test\tipa.simplemarkdown">
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="Une Navbar :"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Link" url="#" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="[]Navbar"/>
+    </elements>
+    <elements xsi:type="simplemarkdown:Link" url="http://google.com" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="Google"/>
+    </elements>
+    <elements xsi:type="simplemarkdown:Link" url="http://lequipe.fr" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="L'equipe"/>
+    </elements>
+    <elements xsi:type="simplemarkdown:Link" url="http://20minutes.fr" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="20 Minutes"/>
+    </elements>
+  </contents>
+  <contents xsi:type="simplemarkdown:Title" level="1">
+    <elements xsi:type="simplemarkdown:Text" text="Titre 1"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="paragraphe de test"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Title" level="2">
+    <elements xsi:type="simplemarkdown:Text" text="Titre 2"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="deux textes"/>
+    <elements xsi:type="simplemarkdown:Text" text="dans un paragraphe"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Link" url="http://google.com" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="premier lien"/>
+    </elements>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="et on continue"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Title" level="4">
+    <elements xsi:type="simplemarkdown:Text" text="Gros Titre (4)"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="Voici un lien :"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Link" url="http://google.com" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="premier lien"/>
+    </elements>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="Une image :"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Image" url="https://pbs.twimg.com/media/EOBFeHxWsAEg69C?format=jpg&amp;name=medium" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="mrg"/>
+    </elements>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="Et un bouton !"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Link" url="#https://www.fil.univ-lille1.fr/portail/index.php?dipl=MInfo&amp;sem=M1GL&amp;ue=ACCUEIL&amp;label=Pr%C3%A9sentation" title="">
+      <subtext xsi:type="simplemarkdown:Text" text="[btn btn-primary]Master Info GL"/>
+    </elements>
+  </contents>
+  <contents xsi:type="simplemarkdown:Paragraph">
+    <elements xsi:type="simplemarkdown:Text" text="Une ligne pour finir :"/>
+  </contents>
+  <contents xsi:type="simplemarkdown:HorizontalLine"/>
+</simplemarkdown:Document>

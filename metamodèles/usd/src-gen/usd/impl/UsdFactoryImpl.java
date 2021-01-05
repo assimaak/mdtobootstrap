@@ -55,29 +55,27 @@ public class UsdFactoryImpl extends EFactoryImpl implements UsdFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case UsdPackage.SITE:
-			return createSite();
 		case UsdPackage.TITLE:
 			return createTitle();
-		case UsdPackage.PARAGRAPHE:
-			return createParagraphe();
+		case UsdPackage.SITE:
+			return createSite();
 		case UsdPackage.TEXT:
 			return createText();
 		case UsdPackage.LINK:
 			return createLink();
+		case UsdPackage.IMAGE:
+			return createImage();
+		case UsdPackage.PARAGRAPHE:
+			return createParagraphe();
+		case UsdPackage.SECTION:
+			return createSection();
+		case UsdPackage.NAVBAR:
+			return createNavbar();
+		case UsdPackage.LINE:
+			return createLine();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Site createSite() {
-		SiteImpl site = new SiteImpl();
-		return site;
 	}
 
 	/**
@@ -95,9 +93,9 @@ public class UsdFactoryImpl extends EFactoryImpl implements UsdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Paragraphe createParagraphe() {
-		ParagrapheImpl paragraphe = new ParagrapheImpl();
-		return paragraphe;
+	public Site createSite() {
+		SiteImpl site = new SiteImpl();
+		return site;
 	}
 
 	/**
@@ -108,6 +106,56 @@ public class UsdFactoryImpl extends EFactoryImpl implements UsdFactory {
 	public Text createText() {
 		TextImpl text = new TextImpl();
 		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Paragraphe createParagraphe() {
+		ParagrapheImpl paragraphe = new ParagrapheImpl();
+		return paragraphe;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Section createSection() {
+		SectionImpl section = new SectionImpl();
+		return section;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Navbar createNavbar() {
+		NavbarImpl navbar = new NavbarImpl();
+		return navbar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Line createLine() {
+		LineImpl line = new LineImpl();
+		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Image createImage() {
+		ImageImpl image = new ImageImpl();
+		return image;
 	}
 
 	/**

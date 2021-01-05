@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="usd" nsURI="http://www.example.org/usd" nsPrefix="usd">
+  <eClassifiers xsi:type="ecore:EClass" name="Title" eSuperTypes="#//TextContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Site">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Title" eSuperTypes="#//TextContainer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Paragraphe" eSuperTypes="#//TextContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//TextElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TextElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlLink" abstract="true" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//UrlLink"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextContainer" abstract="true" eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="textelements" upperBound="-1"
         eType="#//TextElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Reference">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//UrlLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Paragraphe" eSuperTypes="#//TextContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Section" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//Block" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Navbar" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Block"/>
 </ecore:EPackage>

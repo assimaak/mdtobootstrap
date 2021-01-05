@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usd:Site xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:usd="http://www.example.org/usd" name="\fichiers_test\tipa.simplemarkdown">
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="Une Navbar :"/>
+  </blocks>
+  <blocks xsi:type="usd:Navbar">
+    <link url="http://google.com" title="Google"/>
+    <link url="http://lequipe.fr" title="L'equipe"/>
+    <link url="http://20minutes.fr" title="20 Minutes"/>
+  </blocks>
+  <blocks xsi:type="usd:Title" level="1">
+    <textelements xsi:type="usd:Text" text="Titre 1"/>
+  </blocks>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="paragraphe de test"/>
+  </blocks>
+  <blocks xsi:type="usd:Title" level="2">
+    <textelements xsi:type="usd:Text" text="Titre 2"/>
+  </blocks>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="deux textes"/>
+    <textelements xsi:type="usd:Text" text="dans un paragraphe"/>
+  </blocks>
+  <blocks xsi:type="usd:Link" url="http://google.com" title="premier lien"/>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="et on continue"/>
+  </blocks>
+  <blocks xsi:type="usd:Title" level="4">
+    <textelements xsi:type="usd:Text" text="Gros Titre (4)"/>
+  </blocks>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="Voici un lien :"/>
+  </blocks>
+  <blocks xsi:type="usd:Link" url="http://google.com" title="premier lien"/>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="Une image :"/>
+  </blocks>
+  <blocks xsi:type="usd:Image" url="https://pbs.twimg.com/media/EOBFeHxWsAEg69C?format=jpg&amp;name=medium" title="mrg"/>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="Et un bouton !"/>
+  </blocks>
+  <blocks xsi:type="usd:Link" url="#https://www.fil.univ-lille1.fr/portail/index.php?dipl=MInfo&amp;sem=M1GL&amp;ue=ACCUEIL&amp;label=Pr%C3%A9sentation" title="[btn btn-primary]Master Info GL"/>
+  <blocks xsi:type="usd:Paragraphe">
+    <textelements xsi:type="usd:Text" text="Une ligne pour finir :"/>
+  </blocks>
+  <blocks xsi:type="usd:Line"/>
+</usd:Site>

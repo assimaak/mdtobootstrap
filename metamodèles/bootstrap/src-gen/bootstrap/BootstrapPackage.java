@@ -316,32 +316,50 @@ public interface BootstrapPackage extends EPackage {
 	int PARAGRAPHE_OPERATION_COUNT = TEXT_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link bootstrap.impl.ReferenceImpl <em>Reference</em>}' class.
+	 * The meta object id for the '{@link bootstrap.impl.UrlLinkImpl <em>Url Link</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see bootstrap.impl.ReferenceImpl
-	 * @see bootstrap.impl.BootstrapPackageImpl#getReference()
+	 * @see bootstrap.impl.UrlLinkImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getUrlLink()
 	 * @generated
 	 */
-	int REFERENCE = 8;
+	int URL_LINK = 8;
 
 	/**
-	 * The number of structural features of the '<em>Reference</em>' class.
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
+	int URL_LINK__URL = BLOCK_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Reference</em>' class.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
+	int URL_LINK__TITLE = BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Url Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL_LINK_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Url Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL_LINK_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link bootstrap.impl.LinkImpl <em>Link</em>}' class.
@@ -360,7 +378,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__URL = REFERENCE_FEATURE_COUNT + 0;
+	int LINK__URL = URL_LINK__URL;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -369,7 +387,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__TITLE = REFERENCE_FEATURE_COUNT + 1;
+	int LINK__TITLE = URL_LINK__TITLE;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -378,7 +396,7 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = REFERENCE_FEATURE_COUNT + 2;
+	int LINK_FEATURE_COUNT = URL_LINK_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -387,7 +405,173 @@ public interface BootstrapPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_OPERATION_COUNT = REFERENCE_OPERATION_COUNT + 0;
+	int LINK_OPERATION_COUNT = URL_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link bootstrap.impl.ImageImpl <em>Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.ImageImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getImage()
+	 * @generated
+	 */
+	int IMAGE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__URL = URL_LINK__URL;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__TITLE = URL_LINK__TITLE;
+
+	/**
+	 * The number of structural features of the '<em>Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_FEATURE_COUNT = URL_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_OPERATION_COUNT = URL_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link bootstrap.impl.BoutonImpl <em>Bouton</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.BoutonImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getBouton()
+	 * @generated
+	 */
+	int BOUTON = 10;
+
+	/**
+	 * The feature id for the '<em><b>Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUTON__CLASS = BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUTON__TEXT = BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUTON__URL = BLOCK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Bouton</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUTON_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Bouton</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUTON_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link bootstrap.impl.LineImpl <em>Line</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.LineImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getLine()
+	 * @generated
+	 */
+	int LINE = 11;
+
+	/**
+	 * The number of structural features of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link bootstrap.impl.NavbarImpl <em>Navbar</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.NavbarImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getNavbar()
+	 * @generated
+	 */
+	int NAVBAR = 12;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVBAR__LINK = BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Navbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVBAR_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Navbar</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVBAR_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link bootstrap.Site <em>Site</em>}'.
@@ -525,36 +709,120 @@ public interface BootstrapPackage extends EPackage {
 	EClass getLink();
 
 	/**
-	 * Returns the meta object for the attribute '{@link bootstrap.Link#getUrl <em>Url</em>}'.
+	 * Returns the meta object for class '{@link bootstrap.UrlLink <em>Url Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Url Link</em>'.
+	 * @see bootstrap.UrlLink
+	 * @generated
+	 */
+	EClass getUrlLink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bootstrap.UrlLink#getUrl <em>Url</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see bootstrap.Link#getUrl()
-	 * @see #getLink()
+	 * @see bootstrap.UrlLink#getUrl()
+	 * @see #getUrlLink()
 	 * @generated
 	 */
-	EAttribute getLink_Url();
+	EAttribute getUrlLink_Url();
 
 	/**
-	 * Returns the meta object for the attribute '{@link bootstrap.Link#getTitle <em>Title</em>}'.
+	 * Returns the meta object for the attribute '{@link bootstrap.UrlLink#getTitle <em>Title</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see bootstrap.Link#getTitle()
-	 * @see #getLink()
+	 * @see bootstrap.UrlLink#getTitle()
+	 * @see #getUrlLink()
 	 * @generated
 	 */
-	EAttribute getLink_Title();
+	EAttribute getUrlLink_Title();
 
 	/**
-	 * Returns the meta object for class '{@link bootstrap.Reference <em>Reference</em>}'.
+	 * Returns the meta object for class '{@link bootstrap.Image <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Reference</em>'.
-	 * @see bootstrap.Reference
+	 * @return the meta object for class '<em>Image</em>'.
+	 * @see bootstrap.Image
 	 * @generated
 	 */
-	EClass getReference();
+	EClass getImage();
+
+	/**
+	 * Returns the meta object for class '{@link bootstrap.Bouton <em>Bouton</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bouton</em>'.
+	 * @see bootstrap.Bouton
+	 * @generated
+	 */
+	EClass getBouton();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bootstrap.Bouton#getClass_ <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class</em>'.
+	 * @see bootstrap.Bouton#getClass_()
+	 * @see #getBouton()
+	 * @generated
+	 */
+	EAttribute getBouton_Class();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bootstrap.Bouton#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see bootstrap.Bouton#getText()
+	 * @see #getBouton()
+	 * @generated
+	 */
+	EAttribute getBouton_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link bootstrap.Bouton#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see bootstrap.Bouton#getUrl()
+	 * @see #getBouton()
+	 * @generated
+	 */
+	EAttribute getBouton_Url();
+
+	/**
+	 * Returns the meta object for class '{@link bootstrap.Line <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line</em>'.
+	 * @see bootstrap.Line
+	 * @generated
+	 */
+	EClass getLine();
+
+	/**
+	 * Returns the meta object for class '{@link bootstrap.Navbar <em>Navbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Navbar</em>'.
+	 * @see bootstrap.Navbar
+	 * @generated
+	 */
+	EClass getNavbar();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link bootstrap.Navbar#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Link</em>'.
+	 * @see bootstrap.Navbar#getLink()
+	 * @see #getNavbar()
+	 * @generated
+	 */
+	EReference getNavbar_Link();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -700,12 +968,22 @@ public interface BootstrapPackage extends EPackage {
 		EClass LINK = eINSTANCE.getLink();
 
 		/**
+		 * The meta object literal for the '{@link bootstrap.impl.UrlLinkImpl <em>Url Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.UrlLinkImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getUrlLink()
+		 * @generated
+		 */
+		EClass URL_LINK = eINSTANCE.getUrlLink();
+
+		/**
 		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINK__URL = eINSTANCE.getLink_Url();
+		EAttribute URL_LINK__URL = eINSTANCE.getUrlLink_Url();
 
 		/**
 		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
@@ -713,17 +991,79 @@ public interface BootstrapPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINK__TITLE = eINSTANCE.getLink_Title();
+		EAttribute URL_LINK__TITLE = eINSTANCE.getUrlLink_Title();
 
 		/**
-		 * The meta object literal for the '{@link bootstrap.impl.ReferenceImpl <em>Reference</em>}' class.
+		 * The meta object literal for the '{@link bootstrap.impl.ImageImpl <em>Image</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see bootstrap.impl.ReferenceImpl
-		 * @see bootstrap.impl.BootstrapPackageImpl#getReference()
+		 * @see bootstrap.impl.ImageImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getImage()
 		 * @generated
 		 */
-		EClass REFERENCE = eINSTANCE.getReference();
+		EClass IMAGE = eINSTANCE.getImage();
+
+		/**
+		 * The meta object literal for the '{@link bootstrap.impl.BoutonImpl <em>Bouton</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.BoutonImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getBouton()
+		 * @generated
+		 */
+		EClass BOUTON = eINSTANCE.getBouton();
+
+		/**
+		 * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOUTON__CLASS = eINSTANCE.getBouton_Class();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOUTON__TEXT = eINSTANCE.getBouton_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOUTON__URL = eINSTANCE.getBouton_Url();
+
+		/**
+		 * The meta object literal for the '{@link bootstrap.impl.LineImpl <em>Line</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.LineImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getLine()
+		 * @generated
+		 */
+		EClass LINE = eINSTANCE.getLine();
+
+		/**
+		 * The meta object literal for the '{@link bootstrap.impl.NavbarImpl <em>Navbar</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.NavbarImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getNavbar()
+		 * @generated
+		 */
+		EClass NAVBAR = eINSTANCE.getNavbar();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVBAR__LINK = eINSTANCE.getNavbar_Link();
 
 	}
 

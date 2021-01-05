@@ -22,6 +22,15 @@ public interface UsdFactory extends EFactory {
 	UsdFactory eINSTANCE = usd.impl.UsdFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Title</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Title</em>'.
+	 * @generated
+	 */
+	Title createTitle();
+
+	/**
 	 * Returns a new object of class '<em>Site</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,13 +40,13 @@ public interface UsdFactory extends EFactory {
 	Site createSite();
 
 	/**
-	 * Returns a new object of class '<em>Title</em>'.
+	 * Returns a new object of class '<em>Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Title</em>'.
+	 * @return a new object of class '<em>Text</em>'.
 	 * @generated
 	 */
-	Title createTitle();
+	Text createText();
 
 	/**
 	 * Returns a new object of class '<em>Paragraphe</em>'.
@@ -49,13 +58,40 @@ public interface UsdFactory extends EFactory {
 	Paragraphe createParagraphe();
 
 	/**
-	 * Returns a new object of class '<em>Text</em>'.
+	 * Returns a new object of class '<em>Section</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text</em>'.
+	 * @return a new object of class '<em>Section</em>'.
 	 * @generated
 	 */
-	Text createText();
+	Section createSection();
+
+	/**
+	 * Returns a new object of class '<em>Navbar</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Navbar</em>'.
+	 * @generated
+	 */
+	Navbar createNavbar();
+
+	/**
+	 * Returns a new object of class '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line</em>'.
+	 * @generated
+	 */
+	Line createLine();
+
+	/**
+	 * Returns a new object of class '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Image</em>'.
+	 * @generated
+	 */
+	Image createImage();
 
 	/**
 	 * Returns a new object of class '<em>Link</em>'.

@@ -188,6 +188,98 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Image} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImageItemProvider imageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Image}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImageAdapter() {
+		if (imageItemProvider == null) {
+			imageItemProvider = new ImageItemProvider(this);
+		}
+
+		return imageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Bouton} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoutonItemProvider boutonItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Bouton}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoutonAdapter() {
+		if (boutonItemProvider == null) {
+			boutonItemProvider = new BoutonItemProvider(this);
+		}
+
+		return boutonItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Line} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineItemProvider lineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Line}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineAdapter() {
+		if (lineItemProvider == null) {
+			lineItemProvider = new LineItemProvider(this);
+		}
+
+		return lineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Navbar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NavbarItemProvider navbarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Navbar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNavbarAdapter() {
+		if (navbarItemProvider == null) {
+			navbarItemProvider = new NavbarItemProvider(this);
+		}
+
+		return navbarItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +388,14 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 			paragrapheItemProvider.dispose();
 		if (linkItemProvider != null)
 			linkItemProvider.dispose();
+		if (imageItemProvider != null)
+			imageItemProvider.dispose();
+		if (boutonItemProvider != null)
+			boutonItemProvider.dispose();
+		if (lineItemProvider != null)
+			lineItemProvider.dispose();
+		if (navbarItemProvider != null)
+			navbarItemProvider.dispose();
 	}
 
 }

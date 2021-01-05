@@ -8,26 +8,35 @@
   <foreignModel>usd.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Usd" disposableProviderFactory="true" ecorePackage="usd.ecore#/">
+    <genClasses ecoreClass="usd.ecore#//Title">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Title/level"/>
+    </genClasses>
     <genClasses ecoreClass="usd.ecore#//Site">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Site/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Site/blocks"/>
     </genClasses>
-    <genClasses ecoreClass="usd.ecore#//Block"/>
-    <genClasses ecoreClass="usd.ecore#//Title">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Title/level"/>
-    </genClasses>
-    <genClasses ecoreClass="usd.ecore#//Paragraphe"/>
     <genClasses ecoreClass="usd.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Text/text"/>
     </genClasses>
-    <genClasses ecoreClass="usd.ecore#//TextElement"/>
-    <genClasses ecoreClass="usd.ecore#//TextContainer">
+    <genClasses image="false" ecoreClass="usd.ecore#//UrlLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//UrlLink/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//UrlLink/title"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="usd.ecore#//Block"/>
+    <genClasses ecoreClass="usd.ecore#//Link"/>
+    <genClasses image="false" ecoreClass="usd.ecore#//TextContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//TextContainer/textelements"/>
     </genClasses>
-    <genClasses ecoreClass="usd.ecore#//Reference"/>
-    <genClasses ecoreClass="usd.ecore#//Link">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Link/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Link/url"/>
+    <genClasses image="false" ecoreClass="usd.ecore#//TextElement"/>
+    <genClasses ecoreClass="usd.ecore#//Image"/>
+    <genClasses ecoreClass="usd.ecore#//Paragraphe"/>
+    <genClasses ecoreClass="usd.ecore#//Section">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Section/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Section/level"/>
     </genClasses>
+    <genClasses ecoreClass="usd.ecore#//Navbar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Navbar/link"/>
+    </genClasses>
+    <genClasses ecoreClass="usd.ecore#//Line"/>
   </genPackages>
 </genmodel:GenModel>

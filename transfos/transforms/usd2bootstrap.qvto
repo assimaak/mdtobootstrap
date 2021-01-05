@@ -18,19 +18,40 @@ mapping usdmm::Title::title2header(): bootmm::Header{
 	textelements += self.oclAsType(TextContainer).textelements -> map text2text();
 }
 
-mapping usdmm::Paragraphe::para2para(): bootmm::Paragraphe{
-	textelements += self.textelements -> map text2text();
-}
 
-mapping usdmm::Link::link2link(): bootmm::Link{
-	title := self.title;
-	url := self.url;
+mapping usdmm::Paragraphe::para2para(): bootstrap::Paragraphe {
+	textelements += self.textelements -> map text2text();
 }
 
 mapping usdmm::TextElement::text2text():bootmm::Text{
 	text := self.oclAsType(Text).text;
 }
 
+mapping usdmm::Image::img2img():bootmm::Image{
+	url := self.oclAsType(UrlLink).url;
+	title := self.oclAsType(UrlLink).title;
+}
+
+mapping usdmm::Link::link2link():bootmm::Link{
+	url := self.url;
+	title := self.title;
+}
+
+mapping usdmm::Link::bouton2bouton():bootmm::Bouton
+ when {self.url.startsWith("#")}{
+	_class :=self.title.substringBefore("]").substringAfter("[") ;
+	text := self.title.substringAfter("]");
+	url := self.url.substringAfter("#");
+}
+mapping usdmm::Navbar::nav2nav(): bootmm::Navbar{
+	link += self.link -> map link2link();
+}
+mapping usdmm::Line::line2line(): bootmm::Line{
+	
+}
+
 
 mapping usdmm::Block::block2block() : bootmm::Block
-disjuncts usdmm::Title::title2header, usdmm::Link::link2link,usdmm::Paragraphe::para2para {}
+disjuncts usdmm::Title::title2header,usdmm::Link::bouton2bouton,usdmm::Link::link2link,
+ usdmm::Image::img2img, usdmm::Paragraphe::para2para, usdmm::Navbar::nav2nav,
+ usdmm::Line::line2line {}

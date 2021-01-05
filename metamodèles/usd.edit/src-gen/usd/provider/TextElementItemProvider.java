@@ -52,17 +52,6 @@ public class TextElementItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
-	 * This returns TextElement.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextElement"));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

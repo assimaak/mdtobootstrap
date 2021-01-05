@@ -5,15 +5,19 @@ package bootstrap.impl;
 import bootstrap.Block;
 import bootstrap.BootstrapFactory;
 import bootstrap.BootstrapPackage;
+import bootstrap.Bouton;
 import bootstrap.Header;
+import bootstrap.Image;
+import bootstrap.Line;
 import bootstrap.Link;
+import bootstrap.Navbar;
 import bootstrap.Paragraphe;
-import bootstrap.Reference;
 import bootstrap.Site;
 import bootstrap.Text;
 import bootstrap.TextContainer;
 import bootstrap.TextElement;
 
+import bootstrap.UrlLink;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -89,7 +93,35 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass referenceEClass = null;
+	private EClass urlLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass imageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boutonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass navbarEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -277,8 +309,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLink_Url() {
-		return (EAttribute) linkEClass.getEStructuralFeatures().get(0);
+	public EClass getUrlLink() {
+		return urlLinkEClass;
 	}
 
 	/**
@@ -286,8 +318,8 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLink_Title() {
-		return (EAttribute) linkEClass.getEStructuralFeatures().get(1);
+	public EAttribute getUrlLink_Url() {
+		return (EAttribute) urlLinkEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -295,8 +327,80 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getReference() {
-		return referenceEClass;
+	public EAttribute getUrlLink_Title() {
+		return (EAttribute) urlLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImage() {
+		return imageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBouton() {
+		return boutonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBouton_Class() {
+		return (EAttribute) boutonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBouton_Text() {
+		return (EAttribute) boutonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBouton_Url() {
+		return (EAttribute) boutonEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLine() {
+		return lineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNavbar() {
+		return navbarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNavbar_Link() {
+		return (EReference) navbarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -348,10 +452,22 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		paragrapheEClass = createEClass(PARAGRAPHE);
 
 		linkEClass = createEClass(LINK);
-		createEAttribute(linkEClass, LINK__URL);
-		createEAttribute(linkEClass, LINK__TITLE);
 
-		referenceEClass = createEClass(REFERENCE);
+		urlLinkEClass = createEClass(URL_LINK);
+		createEAttribute(urlLinkEClass, URL_LINK__URL);
+		createEAttribute(urlLinkEClass, URL_LINK__TITLE);
+
+		imageEClass = createEClass(IMAGE);
+
+		boutonEClass = createEClass(BOUTON);
+		createEAttribute(boutonEClass, BOUTON__CLASS);
+		createEAttribute(boutonEClass, BOUTON__TEXT);
+		createEAttribute(boutonEClass, BOUTON__URL);
+
+		lineEClass = createEClass(LINE);
+
+		navbarEClass = createEClass(NAVBAR);
+		createEReference(navbarEClass, NAVBAR__LINK);
 	}
 
 	/**
@@ -387,8 +503,12 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		textEClass.getESuperTypes().add(this.getTextElement());
 		headerEClass.getESuperTypes().add(this.getTextContainer());
 		paragrapheEClass.getESuperTypes().add(this.getTextContainer());
-		linkEClass.getESuperTypes().add(this.getReference());
-		referenceEClass.getESuperTypes().add(this.getBlock());
+		linkEClass.getESuperTypes().add(this.getUrlLink());
+		urlLinkEClass.getESuperTypes().add(this.getBlock());
+		imageEClass.getESuperTypes().add(this.getUrlLink());
+		boutonEClass.getESuperTypes().add(this.getBlock());
+		lineEClass.getESuperTypes().add(this.getBlock());
+		navbarEClass.getESuperTypes().add(this.getBlock());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -421,13 +541,29 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLink_Url(), ecorePackage.getEString(), "url", null, 0, 1, Link.class, !IS_TRANSIENT,
+
+		initEClass(urlLinkEClass, UrlLink.class, "UrlLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUrlLink_Url(), ecorePackage.getEString(), "url", null, 0, 1, UrlLink.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLink_Title(), ecorePackage.getEString(), "title", null, 0, 1, Link.class, !IS_TRANSIENT,
+		initEAttribute(getUrlLink_Title(), ecorePackage.getEString(), "title", null, 0, 1, UrlLink.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(referenceEClass, Reference.class, "Reference", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boutonEClass, Bouton.class, "Bouton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBouton_Class(), ecorePackage.getEString(), "class", null, 0, 1, Bouton.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBouton_Text(), ecorePackage.getEString(), "text", null, 0, 1, Bouton.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBouton_Url(), ecorePackage.getEString(), "url", null, 0, 1, Bouton.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNavbar_Link(), this.getLink(), null, "link", null, 0, -1, Navbar.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -19,9 +19,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Paragraphe" eSuperTypes="#//TextContainer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Reference">
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//UrlLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlLink" abstract="true" eSuperTypes="#//Block">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true" eSuperTypes="#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//UrlLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bouton" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Navbar" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//Link"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

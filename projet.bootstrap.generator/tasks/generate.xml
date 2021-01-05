@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="projet.bootstrap.generator">
-    <property name="ECLIPSE_HOME" value="../../../eclipse/modeling-2020-06/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipse/modeling-2020-06/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../eclipse-workspace2"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="projet.bootstrap.generator.libraryclasspath">

@@ -107,8 +107,28 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseReference(Reference object) {
-			return createReferenceAdapter();
+		public Adapter caseUrlLink(UrlLink object) {
+			return createUrlLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseImage(Image object) {
+			return createImageAdapter();
+		}
+
+		@Override
+		public Adapter caseBouton(Bouton object) {
+			return createBoutonAdapter();
+		}
+
+		@Override
+		public Adapter caseLine(Line object) {
+			return createLineAdapter();
+		}
+
+		@Override
+		public Adapter caseNavbar(Navbar object) {
+			return createNavbarAdapter();
 		}
 
 		@Override
@@ -243,16 +263,72 @@ public class BootstrapAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link bootstrap.Reference <em>Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link bootstrap.UrlLink <em>Url Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see bootstrap.Reference
+	 * @see bootstrap.UrlLink
 	 * @generated
 	 */
-	public Adapter createReferenceAdapter() {
+	public Adapter createUrlLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link bootstrap.Image <em>Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see bootstrap.Image
+	 * @generated
+	 */
+	public Adapter createImageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link bootstrap.Bouton <em>Bouton</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see bootstrap.Bouton
+	 * @generated
+	 */
+	public Adapter createBoutonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link bootstrap.Line <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see bootstrap.Line
+	 * @generated
+	 */
+	public Adapter createLineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link bootstrap.Navbar <em>Navbar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see bootstrap.Navbar
+	 * @generated
+	 */
+	public Adapter createNavbarAdapter() {
 		return null;
 	}
 

@@ -73,6 +73,29 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link usd.Title} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TitleItemProvider titleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link usd.Title}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTitleAdapter() {
+		if (titleItemProvider == null) {
+			titleItemProvider = new TitleItemProvider(this);
+		}
+
+		return titleItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link usd.Site} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,26 +119,26 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link usd.Title} instances.
+	 * This keeps track of the one adapter used for all {@link usd.Text} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TitleItemProvider titleItemProvider;
+	protected TextItemProvider textItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link usd.Title}.
+	 * This creates an adapter for a {@link usd.Text}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTitleAdapter() {
-		if (titleItemProvider == null) {
-			titleItemProvider = new TitleItemProvider(this);
+	public Adapter createTextAdapter() {
+		if (textItemProvider == null) {
+			textItemProvider = new TextItemProvider(this);
 		}
 
-		return titleItemProvider;
+		return textItemProvider;
 	}
 
 	/**
@@ -142,26 +165,95 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link usd.Text} instances.
+	 * This keeps track of the one adapter used for all {@link usd.Section} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TextItemProvider textItemProvider;
+	protected SectionItemProvider sectionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link usd.Text}.
+	 * This creates an adapter for a {@link usd.Section}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTextAdapter() {
-		if (textItemProvider == null) {
-			textItemProvider = new TextItemProvider(this);
+	public Adapter createSectionAdapter() {
+		if (sectionItemProvider == null) {
+			sectionItemProvider = new SectionItemProvider(this);
 		}
 
-		return textItemProvider;
+		return sectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link usd.Navbar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NavbarItemProvider navbarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link usd.Navbar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNavbarAdapter() {
+		if (navbarItemProvider == null) {
+			navbarItemProvider = new NavbarItemProvider(this);
+		}
+
+		return navbarItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link usd.Line} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineItemProvider lineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link usd.Line}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineAdapter() {
+		if (lineItemProvider == null) {
+			lineItemProvider = new LineItemProvider(this);
+		}
+
+		return lineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link usd.Image} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImageItemProvider imageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link usd.Image}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImageAdapter() {
+		if (imageItemProvider == null) {
+			imageItemProvider = new ImageItemProvider(this);
+		}
+
+		return imageItemProvider;
 	}
 
 	/**
@@ -286,16 +378,24 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (siteItemProvider != null)
-			siteItemProvider.dispose();
 		if (titleItemProvider != null)
 			titleItemProvider.dispose();
-		if (paragrapheItemProvider != null)
-			paragrapheItemProvider.dispose();
+		if (siteItemProvider != null)
+			siteItemProvider.dispose();
 		if (textItemProvider != null)
 			textItemProvider.dispose();
 		if (linkItemProvider != null)
 			linkItemProvider.dispose();
+		if (imageItemProvider != null)
+			imageItemProvider.dispose();
+		if (paragrapheItemProvider != null)
+			paragrapheItemProvider.dispose();
+		if (sectionItemProvider != null)
+			sectionItemProvider.dispose();
+		if (navbarItemProvider != null)
+			navbarItemProvider.dispose();
+		if (lineItemProvider != null)
+			lineItemProvider.dispose();
 	}
 
 }

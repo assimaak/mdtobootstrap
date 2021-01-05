@@ -340,9 +340,6 @@ public class Generate extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(bootstrap.BootstrapPackage.class)) {
-            resourceSet.getPackageRegistry().put(bootstrap.BootstrapPackage.eINSTANCE.getNsURI(), bootstrap.BootstrapPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

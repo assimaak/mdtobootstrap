@@ -6,35 +6,69 @@ transformation block2block(in md : markdownmm, out usd : usdmm);
 
 main() {
 	var site : Site := object Site{
-		md.rootObjects()[Document] -> forEach( doc ) {
+		md.rootObjects()[Document] -> forOne( doc ) {
 		  name := doc.name;
 		  blocks += doc.contents -> map block2block();
 		}
-	}
+		}
 }
 
 mapping markdownmm::Title::title2title(): usdmm::Title{
 	level := self.level;
-	textelements += self.oclAsType(TextContainer).elements -> map text2text();
+	textelements += self.elements -> map elem2text();
 }
 
-mapping markdownmm::Paragraph::ref2link(): usdmm::Link
-when {self.allSubobjectsOfType(Link) -> size() >0}{
-	self.elements -> forEach (t){
-	 url := t.oclAsType(UrlBasedLink).url;
-	  t.oclAsType(UrlBasedLink).subtext -> forOne(text) {title := text.oclAsType(Text).text };
-	 }
-}
 
-mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe
-when {self.allSubobjectsOfType(Link) -> size() =0}{
-	textelements += self.elements -> map text2text();
-}
-
-mapping markdownmm::TextElement::text2text():usdmm::Text{
+mapping markdownmm::TextElement::elem2text(): usdmm::Text{
 	text := self.oclAsType(Text).text;
 }
 
 
+mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe
+when {self.allSubobjectsOfType(Text) -> size() >0; }{
+	textelements += self.elements -> map elem2text();
+}
+
+mapping markdownmm::Paragraph::para2img(): usdmm::Image
+when {self.allSubobjectsOfType(Image) -> size() >0; }{
+	self.elements -> forEach (e) {
+		url := e.oclAsType(Image).url;
+		e.oclAsType(Image).subtext -> forOne (t) { title := t.oclAsType(Text).text };
+	}
+}
+
+mapping markdownmm::Paragraph::para2link(): usdmm::Link
+when {self.allSubobjectsOfType(Link) -> size() > 0  }{
+	self.elements -> forEach (e) {
+		url := e.oclAsType(Link).url;
+		e.oclAsType(Link).subtext -> forOne (t) { title := t.oclAsType(Text).text };
+		}	
+}
+
+mapping markdownmm::Paragraph::para2navbar(): usdmm::Navbar
+when {self.allSubobjectsOfType(Link) -> size() > 1  }{
+	link += self.elements.oclAsType(Link) -> map elem2link();
+}
+mapping markdownmm::Link::elem2link(): usdmm::Link
+when {self.url <> "#"}{
+		url := self.url;
+		self.subtext -> forOne (t) { title := t.oclAsType(Text).text };
+	
+}
+
+mapping markdownmm::Title::title2section(): usdmm::Section
+when {self.allSubobjectsOfType(LinkWithRef) -> size() > 0 }{
+//	level:= self.level;	
+//	block +=  -> forEach(b){
+//	 b -> map block2block();
+//	 }
+	
+}
+
+mapping markdownmm::HorizontalLine::line2line(): usdmm::Line{
+	
+}
+
 mapping markdownmm::Block::block2block() : usdmm::Block
-disjuncts markdownmm::Title::title2title,markdownmm::Paragraph::ref2link, markdownmm::Paragraph::para2para {}
+disjuncts markdownmm::Title::title2section, markdownmm::Paragraph::para2img , markdownmm::Paragraph::para2navbar, markdownmm::Paragraph::para2link,
+ markdownmm::Paragraph::para2para, markdownmm::Title::title2title, markdownmm::HorizontalLine::line2line {}

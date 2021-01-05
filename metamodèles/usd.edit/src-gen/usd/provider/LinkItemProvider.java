@@ -8,12 +8,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import usd.Link;
-import usd.UsdPackage;
 
 /**
  * This is the item provider adapter for a {@link usd.Link} object.
@@ -21,7 +18,7 @@ import usd.UsdPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkItemProvider extends ReferenceItemProvider {
+public class LinkItemProvider extends UrlLinkItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -43,40 +40,8 @@ public class LinkItemProvider extends ReferenceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTitlePropertyDescriptor(object);
-			addUrlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Link_title_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Link_title_feature", "_UI_Link_type"),
-						UsdPackage.Literals.LINK__TITLE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Url feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUrlPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Link_url_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Link_url_feature", "_UI_Link_type"),
-						UsdPackage.Literals.LINK__URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null, null));
 	}
 
 	/**
@@ -108,7 +73,7 @@ public class LinkItemProvider extends ReferenceItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Link) object).getTitle();
+		String label = ((Link) object).getUrl();
 		return label == null || label.length() == 0 ? getString("_UI_Link_type")
 				: getString("_UI_Link_type") + " " + label;
 	}
@@ -123,13 +88,6 @@ public class LinkItemProvider extends ReferenceItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Link.class)) {
-		case UsdPackage.LINK__TITLE:
-		case UsdPackage.LINK__URL:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

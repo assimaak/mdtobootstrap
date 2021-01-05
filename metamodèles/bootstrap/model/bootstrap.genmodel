@@ -25,10 +25,20 @@
     </genClasses>
     <genClasses image="false" ecoreClass="bootstrap.ecore#//Block"/>
     <genClasses ecoreClass="bootstrap.ecore#//Paragraphe"/>
-    <genClasses ecoreClass="bootstrap.ecore#//Link">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Link/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Link/title"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Link"/>
+    <genClasses ecoreClass="bootstrap.ecore#//UrlLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//UrlLink/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//UrlLink/title"/>
     </genClasses>
-    <genClasses ecoreClass="bootstrap.ecore#//Reference"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Image"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Bouton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Bouton/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Bouton/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bootstrap.ecore#//Bouton/url"/>
+    </genClasses>
+    <genClasses ecoreClass="bootstrap.ecore#//Line"/>
+    <genClasses ecoreClass="bootstrap.ecore#//Navbar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bootstrap.ecore#//Navbar/link"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
