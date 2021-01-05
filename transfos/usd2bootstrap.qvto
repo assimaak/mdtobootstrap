@@ -1,0 +1,67 @@
+
+modeltype usdmm "strict" uses "http://www.example.org/usd";
+modeltype bootmm "strict" uses	"http://www.example.org/bootstrap";
+
+transformation block2block (in usd : usdmm, out boot : bootmm);
+
+-- On crée un Site bootstrap en parcourant et en modifiant tous les blocks du site usd un par un
+main() {
+	var site : bootmm::Site := object bootmm::Site{
+		usd.rootObjects()[usdmm::Site] -> forEach( s ) {
+		  name := s.name;
+		  blocs += s.blocks -> map block2block() ;
+		}
+	}
+}
+
+-- Transforme un Title usd en Header bootstrap
+mapping usdmm::Title::title2header(): bootmm::Header{
+	level := self.level;
+	textelements += self.oclAsType(TextContainer).textelements -> map text2text();
+}
+
+-- Transforme un paragraphe usd en paragraphe bootstrap
+mapping usdmm::Paragraphe::para2para(): bootstrap::Paragraphe {
+	textelements += self.textelements -> map text2text();
+}
+
+-- Transforme un text element usd en text bootstrap
+mapping usdmm::TextElement::text2text():bootmm::Text{
+	text := self.oclAsType(Text).text;
+}
+
+-- Transforme une image usd en image bootstrap
+mapping usdmm::Image::img2img():bootmm::Image{
+	url := self.oclAsType(UrlLink).url;
+	title := self.oclAsType(UrlLink).title;
+}
+
+-- Transforme un lien usd en lien bootstrap
+mapping usdmm::Link::link2link():bootmm::Link{
+	url := self.url;
+	title := self.title;
+}
+
+-- Transforme un lien usd en bouton bootstrap, on fait la distinction grâce à l'url qui commence par #
+mapping usdmm::Link::bouton2bouton():bootmm::Bouton
+ when {self.url.startsWith("#")}{
+	_class :=self.title.substringBefore("]").substringAfter("[") ;
+	text := self.title.substringAfter("]");
+	url := self.url.substringAfter("#");
+}
+
+-- Transforme une navbar usd en navbar bootstrap
+mapping usdmm::Navbar::nav2nav(): bootmm::Navbar{
+	link += self.link -> map link2link();
+}
+
+-- Transforme une line usd en line bootstrap
+mapping usdmm::Line::line2line(): bootmm::Line{
+	
+}
+
+-- Chaque block usd est transformé en bootstrap par le mapping correspondant à son type dans la disjonction
+mapping usdmm::Block::block2block() : bootmm::Block
+disjuncts usdmm::Title::title2header,usdmm::Link::bouton2bouton,usdmm::Link::link2link,
+ usdmm::Image::img2img, usdmm::Paragraphe::para2para, usdmm::Navbar::nav2nav,
+ usdmm::Line::line2line {}

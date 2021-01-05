@@ -280,6 +280,52 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Container} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContainerItemProvider containerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Container}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContainerAdapter() {
+		if (containerItemProvider == null) {
+			containerItemProvider = new ContainerItemProvider(this);
+		}
+
+		return containerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link bootstrap.Row} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RowItemProvider rowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link bootstrap.Row}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRowAdapter() {
+		if (rowItemProvider == null) {
+			rowItemProvider = new RowItemProvider(this);
+		}
+
+		return rowItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +442,10 @@ public class BootstrapItemProviderAdapterFactory extends BootstrapAdapterFactory
 			lineItemProvider.dispose();
 		if (navbarItemProvider != null)
 			navbarItemProvider.dispose();
+		if (containerItemProvider != null)
+			containerItemProvider.dispose();
+		if (rowItemProvider != null)
+			rowItemProvider.dispose();
 	}
 
 }

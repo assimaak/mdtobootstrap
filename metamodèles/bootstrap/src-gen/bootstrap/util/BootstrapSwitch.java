@@ -185,6 +185,22 @@ public class BootstrapSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case BootstrapPackage.CONTAINER: {
+			Container container = (Container) theEObject;
+			T result = caseContainer(container);
+			if (result == null)
+				result = caseBlock(container);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BootstrapPackage.ROW: {
+			Row row = (Row) theEObject;
+			T result = caseRow(row);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -382,6 +398,36 @@ public class BootstrapSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNavbar(Navbar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContainer(Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Row</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRow(Row object) {
 		return null;
 	}
 

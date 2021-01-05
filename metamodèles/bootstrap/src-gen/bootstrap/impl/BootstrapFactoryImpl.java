@@ -74,6 +74,10 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 			return createLine();
 		case BootstrapPackage.NAVBAR:
 			return createNavbar();
+		case BootstrapPackage.CONTAINER:
+			return createContainer();
+		case BootstrapPackage.ROW:
+			return createRow();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -167,6 +171,26 @@ public class BootstrapFactoryImpl extends EFactoryImpl implements BootstrapFacto
 	public Navbar createNavbar() {
 		NavbarImpl navbar = new NavbarImpl();
 		return navbar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public bootstrap.Container createContainer() {
+		ContainerImpl container = new ContainerImpl();
+		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Row createRow() {
+		RowImpl row = new RowImpl();
+		return row;
 	}
 
 	/**

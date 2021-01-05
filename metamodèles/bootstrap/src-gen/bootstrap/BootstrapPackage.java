@@ -574,6 +574,89 @@ public interface BootstrapPackage extends EPackage {
 	int NAVBAR_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link bootstrap.impl.ContainerImpl <em>Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.ContainerImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getContainer()
+	 * @generated
+	 */
+	int CONTAINER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__BLOCK = BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Row</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER__ROW = BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link bootstrap.impl.RowImpl <em>Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see bootstrap.impl.RowImpl
+	 * @see bootstrap.impl.BootstrapPackageImpl#getRow()
+	 * @generated
+	 */
+	int ROW = 14;
+
+	/**
+	 * The feature id for the '<em><b>Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__BLOCK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link bootstrap.Site <em>Site</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -825,6 +908,59 @@ public interface BootstrapPackage extends EPackage {
 	EReference getNavbar_Link();
 
 	/**
+	 * Returns the meta object for class '{@link bootstrap.Container <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Container</em>'.
+	 * @see bootstrap.Container
+	 * @generated
+	 */
+	EClass getContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link bootstrap.Container#getBlock <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Block</em>'.
+	 * @see bootstrap.Container#getBlock()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_Block();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link bootstrap.Container#getRow <em>Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Row</em>'.
+	 * @see bootstrap.Container#getRow()
+	 * @see #getContainer()
+	 * @generated
+	 */
+	EReference getContainer_Row();
+
+	/**
+	 * Returns the meta object for class '{@link bootstrap.Row <em>Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Row</em>'.
+	 * @see bootstrap.Row
+	 * @generated
+	 */
+	EClass getRow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link bootstrap.Row#getBlock <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Block</em>'.
+	 * @see bootstrap.Row#getBlock()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EReference getRow_Block();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +1200,50 @@ public interface BootstrapPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAVBAR__LINK = eINSTANCE.getNavbar_Link();
+
+		/**
+		 * The meta object literal for the '{@link bootstrap.impl.ContainerImpl <em>Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.ContainerImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getContainer()
+		 * @generated
+		 */
+		EClass CONTAINER = eINSTANCE.getContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__BLOCK = eINSTANCE.getContainer_Block();
+
+		/**
+		 * The meta object literal for the '<em><b>Row</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINER__ROW = eINSTANCE.getContainer_Row();
+
+		/**
+		 * The meta object literal for the '{@link bootstrap.impl.RowImpl <em>Row</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see bootstrap.impl.RowImpl
+		 * @see bootstrap.impl.BootstrapPackageImpl#getRow()
+		 * @generated
+		 */
+		EClass ROW = eINSTANCE.getRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROW__BLOCK = eINSTANCE.getRow_Block();
 
 	}
 

@@ -234,6 +234,29 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link usd.Colomn} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColomnItemProvider colomnItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link usd.Colomn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createColomnAdapter() {
+		if (colomnItemProvider == null) {
+			colomnItemProvider = new ColomnItemProvider(this);
+		}
+
+		return colomnItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link usd.Image} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -396,6 +419,8 @@ public class UsdItemProviderAdapterFactory extends UsdAdapterFactory
 			navbarItemProvider.dispose();
 		if (lineItemProvider != null)
 			lineItemProvider.dispose();
+		if (colomnItemProvider != null)
+			colomnItemProvider.dispose();
 	}
 
 }

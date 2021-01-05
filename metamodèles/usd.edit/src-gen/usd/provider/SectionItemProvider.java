@@ -81,6 +81,7 @@ public class SectionItemProvider extends BlockItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UsdPackage.Literals.SECTION__BLOCK);
+			childrenFeatures.add(UsdPackage.Literals.SECTION__COLOMN);
 		}
 		return childrenFeatures;
 	}
@@ -147,6 +148,7 @@ public class SectionItemProvider extends BlockItemProvider {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case UsdPackage.SECTION__BLOCK:
+		case UsdPackage.SECTION__COLOMN:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -184,6 +186,9 @@ public class SectionItemProvider extends BlockItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(UsdPackage.Literals.SECTION__BLOCK, UsdFactory.eINSTANCE.createLine()));
+
+		newChildDescriptors
+				.add(createChildParameter(UsdPackage.Literals.SECTION__COLOMN, UsdFactory.eINSTANCE.createColomn()));
 	}
 
 }

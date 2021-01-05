@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import usd.Block;
+import usd.Colomn;
 import usd.Image;
 import usd.Line;
 import usd.Link;
@@ -80,6 +81,13 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 	 * @generated
 	 */
 	private EClass lineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass colomnEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,6 +299,15 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSection_Colomn() {
+		return (EReference) sectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNavbar() {
 		return navbarEClass;
 	}
@@ -311,6 +328,24 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 	 */
 	public EClass getLine() {
 		return lineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getColomn() {
+		return colomnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColomn_Block() {
+		return (EReference) colomnEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -453,11 +488,15 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 		sectionEClass = createEClass(SECTION);
 		createEReference(sectionEClass, SECTION__BLOCK);
 		createEAttribute(sectionEClass, SECTION__LEVEL);
+		createEReference(sectionEClass, SECTION__COLOMN);
 
 		navbarEClass = createEClass(NAVBAR);
 		createEReference(navbarEClass, NAVBAR__LINK);
 
 		lineEClass = createEClass(LINE);
+
+		colomnEClass = createEClass(COLOMN);
+		createEReference(colomnEClass, COLOMN__BLOCK);
 	}
 
 	/**
@@ -546,6 +585,9 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 				IS_ORDERED);
 		initEAttribute(getSection_Level(), ecorePackage.getEInt(), "level", null, 0, 1, Section.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSection_Colomn(), this.getColomn(), null, "colomn", null, 0, -1, Section.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavbar_Link(), this.getLink(), null, "link", null, 0, -1, Navbar.class, !IS_TRANSIENT,
@@ -553,6 +595,11 @@ public class UsdPackageImpl extends EPackageImpl implements UsdPackage {
 				IS_ORDERED);
 
 		initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(colomnEClass, Colomn.class, "Colomn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColomn_Block(), this.getBlock(), null, "block", null, 0, -1, Colomn.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

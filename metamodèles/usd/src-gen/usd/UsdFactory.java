@@ -85,6 +85,15 @@ public interface UsdFactory extends EFactory {
 	Line createLine();
 
 	/**
+	 * Returns a new object of class '<em>Colomn</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Colomn</em>'.
+	 * @generated
+	 */
+	Colomn createColomn();
+
+	/**
 	 * Returns a new object of class '<em>Image</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

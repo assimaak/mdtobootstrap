@@ -33,10 +33,14 @@
     <genClasses ecoreClass="usd.ecore#//Section">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Section/block"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usd.ecore#//Section/level"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Section/colomn"/>
     </genClasses>
     <genClasses ecoreClass="usd.ecore#//Navbar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Navbar/link"/>
     </genClasses>
     <genClasses ecoreClass="usd.ecore#//Line"/>
+    <genClasses ecoreClass="usd.ecore#//Colomn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usd.ecore#//Colomn/block"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

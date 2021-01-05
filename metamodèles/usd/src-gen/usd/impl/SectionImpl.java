@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import usd.Block;
+import usd.Colomn;
 import usd.Section;
 import usd.UsdPackage;
 
@@ -30,6 +31,7 @@ import usd.UsdPackage;
  * <ul>
  *   <li>{@link usd.impl.SectionImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link usd.impl.SectionImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link usd.impl.SectionImpl#getColomn <em>Colomn</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +66,16 @@ public class SectionImpl extends BlockImpl implements Section {
 	 * @ordered
 	 */
 	protected int level = LEVEL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getColomn() <em>Colomn</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColomn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Colomn> colomn;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,11 +134,25 @@ public class SectionImpl extends BlockImpl implements Section {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Colomn> getColomn() {
+		if (colomn == null) {
+			colomn = new EObjectContainmentEList<Colomn>(Colomn.class, this, UsdPackage.SECTION__COLOMN);
+		}
+		return colomn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case UsdPackage.SECTION__BLOCK:
 			return ((InternalEList<?>) getBlock()).basicRemove(otherEnd, msgs);
+		case UsdPackage.SECTION__COLOMN:
+			return ((InternalEList<?>) getColomn()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,6 +169,8 @@ public class SectionImpl extends BlockImpl implements Section {
 			return getBlock();
 		case UsdPackage.SECTION__LEVEL:
 			return getLevel();
+		case UsdPackage.SECTION__COLOMN:
+			return getColomn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +191,10 @@ public class SectionImpl extends BlockImpl implements Section {
 		case UsdPackage.SECTION__LEVEL:
 			setLevel((Integer) newValue);
 			return;
+		case UsdPackage.SECTION__COLOMN:
+			getColomn().clear();
+			getColomn().addAll((Collection<? extends Colomn>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -181,6 +213,9 @@ public class SectionImpl extends BlockImpl implements Section {
 		case UsdPackage.SECTION__LEVEL:
 			setLevel(LEVEL_EDEFAULT);
 			return;
+		case UsdPackage.SECTION__COLOMN:
+			getColomn().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +232,8 @@ public class SectionImpl extends BlockImpl implements Section {
 			return block != null && !block.isEmpty();
 		case UsdPackage.SECTION__LEVEL:
 			return level != LEVEL_EDEFAULT;
+		case UsdPackage.SECTION__COLOMN:
+			return colomn != null && !colomn.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1,0 +1,114 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module generate('http://www.example.org/bootstrap')]
+
+
+[**
+ * The documentation of the template generateElement.
+ * @param aSite
+ */]
+[template public generateElement(aSite : Site)]
+[comment @main/]
+[file ('projet/html/'+aSite.name+'.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> [aSite.name/] </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+[comment]On parcoure tous les blocs du site pour générer leur code successivement[/comment]
+[aSite.blocs.generateElement()/]
+</body>
+</html>
+[/file]
+[/template]
+
+[comment]On utilise le if pour entrer dans le template correspondant à chaque block[/comment]
+[template public generateElement (aBlock : Block)]
+[if (aBlock.oclIsKindOf(Header))]
+[aBlock.eAllContents(Header).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Paragraphe))]
+[aBlock.eAllContents(Paragraphe).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Image))]
+[aBlock.eAllContents(Image).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Navbar))]
+[aBlock.eAllContents(Navbar).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Line))]
+[aBlock.eAllContents(Line).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Bouton))]
+[aBlock.eAllContents(Bouton).generateElement()/]
+[/if]
+[if (aBlock.oclIsKindOf(Link))]
+[aBlock.eAllContents(Link).generateElement()/]
+[/if]
+
+[/template]
+
+[comment]Création d'un lien[/comment]
+[template public generateElement (aLink : Link)]
+<a class="nav-link active" href="[aLink.url/]"> [aLink.title/] </a>
+[/template]
+
+[comment]Création d'un header[/comment]
+[template public generateElement (anHeader : Header)]
+[for (i : Text | anHeader.textelements)]
+<h[anHeader.level/]> [i.text/] </h[anHeader.level/]>
+[/for]	
+[/template]
+
+[comment]Création d'un paragraphe en parcourant tous ses éléments[/comment]
+[template public generateElement (aParagraphe : Paragraphe)]
+<p>[for (i : TextElement | aParagraphe.textelements)]
+
+[if (i.oclIsKindOf(Text))]
+[i.oclAsType(Text).text/]
+[/if]
+
+[/for]</p>
+
+[/template]
+
+[comment]Création d'une image[/comment]
+[template public generateElement (anImage : Image)]
+<img src="[anImage.url/]" title="[anImage.title/]">
+[/template]
+
+[comment]Création d'une navbar foncée en parcourant tous ses liens[/comment]
+[template public generateElement (aNavbar : Navbar)]
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="navbar-nav">
+    [for (i : Block | aNavbar.link)]
+	<li class="nav-item">
+      <a class="nav-link" href="[i.oclAsType(Link).url/]">[i.oclAsType(Link).title/]</a>
+    </li>
+	[/for]
+  </ul>
+</nav>
+[/template]
+
+
+[comment]Création d'un bouton avec son lien et sa classe respective[/comment]
+[template public generateElement (aButton : Bouton)]
+<a href="[aButton.url/]" class="[aButton.class/]" role="button">[aButton.text/]</a>
+[/template]
+
+[comment]Création d'une ligne horizontale[/comment]
+[template public generateElement (aLine : Line)]
+<hr class="my-3"/>
+[/template]
+
+

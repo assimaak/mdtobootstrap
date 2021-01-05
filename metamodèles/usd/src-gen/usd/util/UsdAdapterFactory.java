@@ -132,6 +132,11 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseColomn(Colomn object) {
+			return createColomnAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -245,6 +250,20 @@ public class UsdAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link usd.Colomn <em>Colomn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see usd.Colomn
+	 * @generated
+	 */
+	public Adapter createColomnAdapter() {
 		return null;
 	}
 

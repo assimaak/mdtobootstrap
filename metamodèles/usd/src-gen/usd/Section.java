@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link usd.Section#getBlock <em>Block</em>}</li>
  *   <li>{@link usd.Section#getLevel <em>Level</em>}</li>
+ *   <li>{@link usd.Section#getColomn <em>Colomn</em>}</li>
  * </ul>
  *
  * @see usd.UsdPackage#getSection()
@@ -55,5 +56,17 @@ public interface Section extends Block {
 	 * @generated
 	 */
 	void setLevel(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Colomn</b></em>' containment reference list.
+	 * The list contents are of type {@link usd.Colomn}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Colomn</em>' containment reference list.
+	 * @see usd.UsdPackage#getSection_Colomn()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Colomn> getColomn();
 
 } // Section

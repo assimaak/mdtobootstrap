@@ -482,13 +482,22 @@ public interface UsdPackage extends EPackage {
 	int SECTION__LEVEL = BLOCK_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Colomn</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__COLOMN = BLOCK_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 2;
+	int SECTION_FEATURE_COUNT = BLOCK_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Section</em>' class.
@@ -563,6 +572,43 @@ public interface UsdPackage extends EPackage {
 	 * @ordered
 	 */
 	int LINE_OPERATION_COUNT = BLOCK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link usd.impl.ColomnImpl <em>Colomn</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see usd.impl.ColomnImpl
+	 * @see usd.impl.UsdPackageImpl#getColomn()
+	 * @generated
+	 */
+	int COLOMN = 13;
+
+	/**
+	 * The feature id for the '<em><b>Block</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOMN__BLOCK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Colomn</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOMN_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Colomn</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLOMN_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link usd.Title <em>Title</em>}'.
@@ -681,6 +727,17 @@ public interface UsdPackage extends EPackage {
 	EAttribute getSection_Level();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link usd.Section#getColomn <em>Colomn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Colomn</em>'.
+	 * @see usd.Section#getColomn()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EReference getSection_Colomn();
+
+	/**
 	 * Returns the meta object for class '{@link usd.Navbar <em>Navbar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,6 +767,27 @@ public interface UsdPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLine();
+
+	/**
+	 * Returns the meta object for class '{@link usd.Colomn <em>Colomn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Colomn</em>'.
+	 * @see usd.Colomn
+	 * @generated
+	 */
+	EClass getColomn();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link usd.Colomn#getBlock <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Block</em>'.
+	 * @see usd.Colomn#getBlock()
+	 * @see #getColomn()
+	 * @generated
+	 */
+	EReference getColomn_Block();
 
 	/**
 	 * Returns the meta object for class '{@link usd.Image <em>Image</em>}'.
@@ -926,6 +1004,14 @@ public interface UsdPackage extends EPackage {
 		EAttribute SECTION__LEVEL = eINSTANCE.getSection_Level();
 
 		/**
+		 * The meta object literal for the '<em><b>Colomn</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECTION__COLOMN = eINSTANCE.getSection_Colomn();
+
+		/**
 		 * The meta object literal for the '{@link usd.impl.NavbarImpl <em>Navbar</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -952,6 +1038,24 @@ public interface UsdPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LINE = eINSTANCE.getLine();
+
+		/**
+		 * The meta object literal for the '{@link usd.impl.ColomnImpl <em>Colomn</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see usd.impl.ColomnImpl
+		 * @see usd.impl.UsdPackageImpl#getColomn()
+		 * @generated
+		 */
+		EClass COLOMN = eINSTANCE.getColomn();
+
+		/**
+		 * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLOMN__BLOCK = eINSTANCE.getColomn_Block();
 
 		/**
 		 * The meta object literal for the '{@link usd.impl.ImageImpl <em>Image</em>}' class.

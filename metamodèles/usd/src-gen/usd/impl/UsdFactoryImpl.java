@@ -73,6 +73,8 @@ public class UsdFactoryImpl extends EFactoryImpl implements UsdFactory {
 			return createNavbar();
 		case UsdPackage.LINE:
 			return createLine();
+		case UsdPackage.COLOMN:
+			return createColomn();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -146,6 +148,16 @@ public class UsdFactoryImpl extends EFactoryImpl implements UsdFactory {
 	public Line createLine() {
 		LineImpl line = new LineImpl();
 		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Colomn createColomn() {
+		ColomnImpl colomn = new ColomnImpl();
+		return colomn;
 	}
 
 	/**

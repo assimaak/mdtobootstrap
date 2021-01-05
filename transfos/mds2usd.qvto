@@ -1,0 +1,83 @@
+
+modeltype markdownmm "strict" uses "http://www.example.org/simplemarkdown";
+modeltype usdmm "strict" uses	"http://www.example.org/usd";
+
+transformation block2block(in md : markdownmm, out usd : usdmm);
+
+-- on crée un Site usd en parcourant et en modifiant tous les blocks du document markdown un par un
+main() {
+	var site : Site := object Site{
+		md.rootObjects()[Document] -> forOne( doc ) {
+		  name := doc.name;
+		  blocks += doc.contents -> map block2block();
+		}
+		}
+}
+
+-- transforme un titre markdown en titre usd 
+mapping markdownmm::Title::title2title(): usdmm::Title{
+	level := self.level;
+	textelements += self.elements -> map elem2text();
+}
+
+-- transforme un text element en texte usd
+mapping markdownmm::TextElement::elem2text(): usdmm::Text{
+	text := self.oclAsType(Text).text;
+}
+
+-- transforme un paragraphe markdown en paragraphe usd quand le paragraphe contient des textes
+mapping markdownmm::Paragraph::para2para(): usdmm::Paragraphe
+when {self.allSubobjectsOfType(Text) -> size() >0; }{
+	textelements += self.elements -> map elem2text();
+}
+
+-- transforme un paragraphe markdown en image usd quand le paragraphe contient une image
+mapping markdownmm::Paragraph::para2img(): usdmm::Image
+when {self.allSubobjectsOfType(Image) -> size() >0; }{
+	self.elements -> forEach (e) {
+		url := e.oclAsType(Image).url;
+		e.oclAsType(Image).subtext -> forOne (t) { title := t.oclAsType(Text).text };
+	}
+}
+
+-- transforme un paragraphe markdown en lien usd quand le paragraphe contient un lien
+mapping markdownmm::Paragraph::para2link(): usdmm::Link
+when {self.allSubobjectsOfType(Link) -> size() = 1  }{
+	self.elements -> forEach (e) {
+		url := e.oclAsType(Link).url;
+		e.oclAsType(Link).subtext -> forOne (t) { title := t.oclAsType(Text).text };
+		}	
+}
+
+-- change un paragraphe markdown en navbar usd quand ce paragraphe contient plusieurs link
+mapping markdownmm::Paragraph::para2navbar(): usdmm::Navbar
+when {self.allSubobjectsOfType(Link) -> size() > 1  }{
+	link += self.elements.oclAsType(Link) -> map link2link();
+}
+-- change un lien markdown en lien usd
+mapping markdownmm::Link::link2link(): usdmm::Link
+when {self.url <> "#"}{
+		url := self.url;
+		self.subtext -> forOne (t) { title := t.oclAsType(Text).text };
+	
+}
+
+-- INCOMPLET : doit permettre de créer une section et de lui ajouter les colonnes et les blocks qui la composent
+mapping markdownmm::Title::title2section(): usdmm::Section
+when {self.allSubobjectsOfType(LinkWithRef) -> size() > 0 }{
+//	level:= self.level;	
+//	block +=  -> forEach(b){
+//	 b -> map block2block();
+//	 }
+	
+}
+
+-- Transforme une ligne en ligne
+mapping markdownmm::HorizontalLine::line2line(): usdmm::Line{
+	
+}
+
+-- Transforme un block markdown en un block usd selon le type d'éléments présents dans le titre ou le paragraphe
+mapping markdownmm::Block::block2block() : usdmm::Block
+disjuncts markdownmm::Title::title2section, markdownmm::Paragraph::para2img , markdownmm::Paragraph::para2navbar, markdownmm::Paragraph::para2link,
+ markdownmm::Paragraph::para2para, markdownmm::Title::title2title, markdownmm::HorizontalLine::line2line {}

@@ -12,6 +12,7 @@ import bootstrap.Line;
 import bootstrap.Link;
 import bootstrap.Navbar;
 import bootstrap.Paragraphe;
+import bootstrap.Row;
 import bootstrap.Site;
 import bootstrap.Text;
 import bootstrap.TextContainer;
@@ -122,6 +123,20 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * @generated
 	 */
 	private EClass navbarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rowEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -408,6 +423,51 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getContainer() {
+		return containerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContainer_Block() {
+		return (EReference) containerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContainer_Row() {
+		return (EReference) containerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRow() {
+		return rowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRow_Block() {
+		return (EReference) rowEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BootstrapFactory getBootstrapFactory() {
 		return (BootstrapFactory) getEFactoryInstance();
 	}
@@ -468,6 +528,13 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		navbarEClass = createEClass(NAVBAR);
 		createEReference(navbarEClass, NAVBAR__LINK);
+
+		containerEClass = createEClass(CONTAINER);
+		createEReference(containerEClass, CONTAINER__BLOCK);
+		createEReference(containerEClass, CONTAINER__ROW);
+
+		rowEClass = createEClass(ROW);
+		createEReference(rowEClass, ROW__BLOCK);
 	}
 
 	/**
@@ -509,6 +576,7 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 		boutonEClass.getESuperTypes().add(this.getBlock());
 		lineEClass.getESuperTypes().add(this.getBlock());
 		navbarEClass.getESuperTypes().add(this.getBlock());
+		containerEClass.getESuperTypes().add(this.getBlock());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(siteEClass, Site.class, "Site", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -562,6 +630,20 @@ public class BootstrapPackageImpl extends EPackageImpl implements BootstrapPacka
 
 		initEClass(navbarEClass, Navbar.class, "Navbar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNavbar_Link(), this.getLink(), null, "link", null, 0, -1, Navbar.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(containerEClass, bootstrap.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContainer_Block(), this.getBlock(), null, "block", null, 0, -1, bootstrap.Container.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_Row(), this.getRow(), null, "row", null, 0, -1, bootstrap.Container.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRow_Block(), this.getBlock(), null, "block", null, 0, -1, Row.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
